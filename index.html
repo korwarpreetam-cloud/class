@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #heder{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+        gap: 10px;
+        background-color: rgb(43, 39, 39);
+        border-radius: 20px;
+        height: 100px;
+
+
+
+
+    }
+    #body{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+      
+        gap: 50px;
+        background-color: antiquewhite;
+        border-radius: 20px;
+
+    }
+   input{
+    height: 40px;
+    width: 180px;
+    border-radius: 10px;
+    background-color: transparent;
+ 
+    border-style: solid;
+    border-color: seashell;
+   }
+   button{
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: rgb(50, 50, 105);
+ 
+   }
+    
+
+</style>
+<body>
+
+    <div id="heder">
+    <div id="srchinput"> <input type="text" placeholder="search"></div>
+    <div id="searchbtn"><button>search</button></div>
+    </div>
+    <div id="body">
+        <div id="temp"><h1>23.5deg</h1>
+       
+    </div>
+        <div id="loc">
+              
+            <h1>Delhi</h1>
+            date:10/10/2007
+        <br>
+        time:2:00pm
+        </div>
+        <div id="weather">
+           <span id="kop"> <img src="https://www.gstatic.com/weather/conditions/v1/svg/partly_cloudy_light.svg"></span>
+            <br>
+            <span>sunny</span>
+         
+
+        </div>
+    
+
+    </div>
+  <P id="output"></P>
+</body>
+<script>
+    const input = document.getElementById("srchinput");
+const btn = document.getElementById("searchbtn");
+
+btn.addEventListener("click", () => {
+  document.getElementById("output").innerText = input.value;
+});
+
+
+</script>
+</html>
