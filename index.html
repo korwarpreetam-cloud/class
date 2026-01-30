@@ -82,13 +82,72 @@
   <P id="output"></P>
 </body>
 <script>
-    const input = document.getElementById("srchinput");
-const btn = document.getElementById("searchbtn");
+/* get elements EXACTLY from your HTML */
+const input = document.querySelector("#srchinput input");
+const btn = document.querySelector("#searchbtn button");
 
+const tempEl = document.getElementById("temp");
+const locEl = document.getElementById("loc");
+const weatherEl = document.getElementById("weather");
+
+/* WeatherAPI key */
+const API_KEY = "f27e52f749f34f16b8b43504262301";
+
+/* click event */
 btn.addEventListener("click", () => {
-  document.getElementById("output").innerText = input.value;
+  const city = input.value.trim();
+
+  if (city === "") {
+    alert("Please enter a city name");
+    return;
+  }
+
+  fetchWeather(city);
 });
 
+/* enter key support */
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    btn.click();
+  }
+});
 
+/* fetch weather */
+function fetchWeather(city) {
+  fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        alert(data.error.message);
+        return;
+      }
+
+      updateUI(data);
+    })
+    .catch(error => {
+      console.error(error);
+      alert("Network error");
+    });
+}
+
+/* update UI */
+function updateUI(data) {
+  tempEl.innerHTML = `<h1>${data.current.temp_c}°C</h1>`;
+
+  locEl.innerHTML = `
+    <h1>${data.location.name}</h1>
+    Date: ${data.location.localtime.split(" ")[0]}<br>
+    Time: ${data.location.localtime.split(" ")[1]}
+  `;
+
+  weatherEl.innerHTML = `
+    <img src="https:${data.current.condition.icon}">
+    <br>
+    <span>${data.current.condition.text}</span>
+  `;
+}
 </script>
+
+
+
 </html>
