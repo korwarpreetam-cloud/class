@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  #boxes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  #gp{
+    width: 900px;
+    min-height: 190px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: brown;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+
+  }
+  #p{
+    width: 800px;
+    min-height: 170px;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    color: rgb(248, 248, 248);
+    gap: 20px;
+
+  }
+  #c{
+    background-color: bisque;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    color: black;
+    display: flex;
+     justify-content: center;
+    align-items: center;
+
+  }
+  #eventlog{
+    background-color: cadetblue;
+    height:300px;
+    width: 400px;
+    border-radius: 20px;
+    padding: 20px;
+
+  }
+  #clear{
+    height: 20px;
+    width: 50px;
+    background-color: black;
+    color: aliceblue;
+    position: relative;
+    top: 80%;
+    left: 80%;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+
+  }
+  
+</style>
+<body>
+    <div id="heder">
+        <h1>event flow playground</h1>
+        <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto quasi tenetur inventore cum quam eum, repudiandae, commodi sit dolores veritatis incidunt nobis deserunt, pariatur voluptas. Rem magni excepturi sequi eligendi!</P>
+    </div>
+    <div id="boxes">
+        <div id="familybox">
+            <div id="gp"><span><h3>grandparent</h3></span>
+               <div id="p"><span><h4>parent</h4></span>
+                
+                <div id="c">
+                    <span>click</span>
+                 
+
+                </div>
+               </div>
+            </div>
+
+        </div>
+        <div id="eventlog">
+            <div id="box1"><h2>eventlog</h2></div>
+            <div id="minibox">
+                <div id="minibox1"><p id="gpLog"></p></div>
+                    
+                    <div id="minibox2"><p id="parentLog"></p></div>
+                    
+                    
+                        <div id="minibox3"><p id="childLog"></p> </div>
+                       
+                    <div id="clear">clear</div>
+
+                       
+                    
+                
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    
+
+  const childLog = document.getElementById("childLog");
+  const parentLog = document.getElementById("parentLog");
+  const gpLog = document.getElementById("gpLog");
+  const cler =document.getElementById("clear");
+  cler.addEventListener("click",()=>{
+     gpLog.innerText = " ";
+     parentLog.innerText = "  ";
+      childLog.innerText = " ";
+
+  })
+
+
+  document.getElementById("gp").addEventListener("click", () => {
+    console.log("grand parent clicked");
+    gpLog.innerText = "grand parent clicked";
+    
+  }, false);
+
+  document.getElementById("p").addEventListener("click", () => {
+    console.log("parent clicked");
+    parentLog.innerText = "parent clicked";
+  }, false);
+
+  document.getElementById("c").addEventListener("click", () => {
+    console.log("child clicked");
+    childLog.innerText = "child clicked";
+  }, false);
+
+
+</script>
+</html>
