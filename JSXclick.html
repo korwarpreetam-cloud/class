@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    > </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"> 
+        </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>React intro</h2>
+    <div id="root"></div>
+    <script type="text/babel">
+      //babel transpiler
+      //select that node
+      const rootEle = document.querySelector("#root");
+
+      function Heading() {
+       
+       let count=0; 
+     const handleClick=(e)=>{
+        count++;
+        const box =e.target;
+      const k = document.getElementsByClassName("scorep")[0];
+k.innerText = count;
+
+
+       box.style.left=Math.random()*(320-40)+"px";
+       box.style.top=Math.random()*(400-50)+"px";
+
+            
+                 
+
+        
+
+     };
+
+        
+
+        return (
+          <div className="outerbox" style={{height:"600px",backgroundColor:"lightblue",width:"70%", display:"flex", alignItems:"center", flexDirection:"column"}}>
+            <div className="score" ><h2 >Score:<span className="scorep"> 0</span></h2></div>
+            <div onClick={handleClick} className="innerbox" style={{height:"40px", width:"40px", backgroundColor:"red", position:"relative"}}>
+
+            </div>
+          </div>
+        );
+      }
+
+       
+
+
+      ReactDOM.render(<Heading/>, rootEle);
+    </script>
+  </body>
+</html>=
