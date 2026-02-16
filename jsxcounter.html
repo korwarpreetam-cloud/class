@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    > </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"> 
+        </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>React intro</h2>
+    <div id="root"></div>
+    <script type="text/babel">
+      //babel transpiler
+      //select that node
+      const rootEle = document.querySelector("#root");
+
+      function Heading() {
+     const [count, setCount]=React.useState(0);
+      
+     const handleClick=()=>{
+        setCount(count+1)
+        
+     
+     };
+
+const handleClickmin=()=>{
+ setCount(count-1)
+  
+    
+
+};
+const handlecilckres=()=>{
+   
+    setCount(0)
+}
+
+
+
+
+
+
+
+
+
+
+    
+   
+       
+ 
+
+        
+
+        return (
+            <div className="outerbox" style={{height:"200px",backgroundColor:"lightblue",width:"50%", display:"flex", alignItems:"center", flexDirection:"column"}} >
+                <div className="upperpart">
+                    <div className="heding"><h1>counter app</h1>
+                        </div>
+                    <div className="screen" style={{display:"flex", alignItems:"center",justifyContent:"center" }}> <div className="counter"><h1>{count}</h1></div></div>
+                        </div>
+                <div className="lowerpart" style={{ display:"flex", alignItems:"center", flexDirection:"row", gap:"10px"}}>
+                    <div    onClick={handleClickmin} className="minus " ><button>-</button></div>
+                     <div onClick={handlecilckres} className="restart "><button>restart</button></div>
+                      <div   onClick={handleClick} className="add "><button>+</button></div>
+                      </div>
+
+                    
+                </div>
+            
+        
+      )
+            }
+      
+
+       
+
+
+      ReactDOM.render(<Heading/>, rootEle);
+    </script>
+  </body>
+</html>
